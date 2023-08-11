@@ -7,9 +7,9 @@
  **/
 #include "xspolygonbutton.h"
 
-XSPolygonButton::XSPolygonButton(POINT *apt, int cpt)
+XSPolygonButton::XSPolygonButton(XSPoint *apt, int cpt)
 {
-	this->m_apt = new POINT[cpt];
+	this->m_apt = new XSPoint[cpt];
 	
 	for(int i = 0; i < cpt; i++)
 	{
@@ -59,20 +59,20 @@ void XSPolygonButton::set_brush_pushed(HBRUSH hbr)
 	this->m_hbr_pushed = hbr;
 }
 
-bool XSPolygonButton::XSPolygonButton::m_delta(int x, int y)
+bool XSPolygonButton::XSPolygonButton::m_delta(double x, double y)
 {
 	//计数 : 与边的交点个数
 	int n_inter = 0;
 	for(int i = 0; i < this->m_cpt; i++)
 	{
 		//取两个点
-		POINT *p1 = this->m_apt + i;
-		POINT *p2 = this->m_apt + ((i + 1) % this->m_cpt);
+		XSPoint *p1 = this->m_apt + i;
+		XSPoint *p2 = this->m_apt + ((i + 1) % this->m_cpt);
 		
-		int max_y = (p1->y > p2->y) ? p1->y : p2->y;
-		int min_y = (p1->y < p2->y) ? p1->y : p2->y;
-		int max_x = (p1->x > p2->x) ? p1->x : p2->x;
-		int min_x = (p1->x < p2->x) ? p1->x : p2->x;
+		double max_y = (p1->y > p2->y) ? p1->y : p2->y;
+		double min_y = (p1->y < p2->y) ? p1->y : p2->y;
+		double max_x = (p1->x > p2->x) ? p1->x : p2->x;
+		double min_x = (p1->x < p2->x) ? p1->x : p2->x;
 		
 		if(p1->x == p2->x)
 		{
@@ -84,7 +84,7 @@ bool XSPolygonButton::XSPolygonButton::m_delta(int x, int y)
 		}
 		else if(x >= min_x && x <= max_x)
 		{
-			double y0 = double(p2->y - p1->y) * (x - p1->x) / (p2->x - p1->x) + p1->y;
+			double y0 = (p2->y - p1->y) * (x - p1->x) / (p2->x - p1->x) + p1->y;
 			if(y < y0 && y0 >= min_y && y0 <= max_y)
 			{
 				n_inter++;

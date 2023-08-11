@@ -9,12 +9,12 @@
 
 XSScene::XSScene()
 {
-	on_timer = [](POINT){};
-	on_lbuttondown = [](POINT){};
-	on_lbuttonup = [](POINT){};
+	on_timer = [](XSPoint){};
+	on_lbuttondown = [](XSPoint){};
+	on_lbuttonup = [](XSPoint){};
 	on_keydown = [](WPARAM){};
 	on_keyup = [](WPARAM){};
-	on_mousemove = [](POINT){};
+	on_mousemove = [](XSPoint){};
 	on_paint = [](XSGraphic*){};
 	m_b_used = false;
 }
@@ -24,22 +24,22 @@ XSScene::~XSScene()
 	
 }
 
-void XSScene::set_on_timer(std::function<void(POINT)> ot)
+void XSScene::set_on_timer(std::function<void(XSPoint)> ot)
 {
 	this->on_timer = ot;
 }
 
-void XSScene::set_on_lbuttondown(std::function<void(POINT)> olbd)
+void XSScene::set_on_lbuttondown(std::function<void(XSPoint)> olbd)
 {
 	this->on_lbuttondown = olbd;
 }
 
-void XSScene::set_on_lbuttonup(std::function<void(POINT)> olbu)
+void XSScene::set_on_lbuttonup(std::function<void(XSPoint)> olbu)
 {
 	this->on_lbuttonup = olbu;
 }
 
-void XSScene::set_on_mousemove(std::function<void(POINT)> omm)
+void XSScene::set_on_mousemove(std::function<void(XSPoint)> omm)
 {
 	this->on_mousemove = omm;
 }

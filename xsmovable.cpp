@@ -11,14 +11,14 @@
 
 XSMovable::XSMovable()
 {
-	m_pos.x = XSGRAPHIC_COMPATIBLEBMP_W / 2;
-	m_pos.y = XSGRAPHIC_COMPATIBLEBMP_H / 2;
+	m_pos.x = 0.5;
+	m_pos.y = 0.5;
 	
 	b_in = false;
 	b_push = false;
 }
 
-XSMovable::XSMovable(int x, int y)
+XSMovable::XSMovable(double x, double y)
 {
 	m_pos.x = x;
 	m_pos.y = y;
@@ -32,7 +32,7 @@ XSMovable::~XSMovable()
 	
 }
 
-void XSMovable::move_to(int x, int y)
+void XSMovable::move_to(double x, double y)
 {
 	if(b_push)
 	{
@@ -48,7 +48,7 @@ void XSMovable::draw(XSGraphic *g)
 	this->m_draw(g, b_in, b_push);
 }
 
-bool XSMovable::b_in_range(int x, int y)
+bool XSMovable::b_in_range(double x, double y)
 {
 	b_in = !this->m_b_in_subobject_range(x, y);
 	b_in &= this->m_delta(x, y);
@@ -65,28 +65,28 @@ void XSMovable::pop()
 	b_push = false;
 }
 
-POINT *XSMovable::get_pos()
+XSPoint *XSMovable::get_pos()
 {
 	return &this->m_pos;
 }
 
-void XSMovable::set_pos(int x, int y)
+void XSMovable::set_pos(double x, double y)
 {
 	this->m_pos.x = x;
 	this->m_pos.y = y;
 }
 
-bool XSMovable::m_b_in_subobject_range(int, int)
+bool XSMovable::m_b_in_subobject_range(double, double)
 {
 	return false;
 }
 
-void XSMovable::m_subobjects_move_to(int, int)
+void XSMovable::m_subobjects_move_to(double, double)
 {
 	
 }
 
-void XSMovable::m_move_to(int x, int y)
+void XSMovable::m_move_to(double x, double y)
 {
 	
 }

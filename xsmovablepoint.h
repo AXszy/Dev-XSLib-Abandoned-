@@ -13,11 +13,11 @@
 class XSMovablePoint : public XSMovable {
 public:
 	XSMovablePoint();									/*构造函数*/
-	XSMovablePoint(int x, int y, int r);				/*构造函数*/
+	XSMovablePoint(double x, double y, double r);				/*构造函数*/
 	~XSMovablePoint();									/*析构函数*/
 private:
-	int m_r;											/*半径*/
-	bool m_delta(int x, int y);							/*判别式*/
+	double m_r;											/*半径*/
+	bool m_delta(double x, double y);							/*判别式*/
 	void m_draw(XSGraphic *g, bool bin, bool bpush);	/*绘制*/
 };
 

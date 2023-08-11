@@ -7,7 +7,7 @@
  **/
 #include "xsmovablepolygon.h"
 
-XSMovablePolygon::XSMovablePolygon(POINT *apt, int cpt) : XSMovable(0, 0)
+XSMovablePolygon::XSMovablePolygon(XSPoint *apt, int cpt) : XSMovable(0, 0)
 {
 	this->m_cpt = cpt;
 	this->m_mvbl_pt = new XSMovablePoint[cpt];
@@ -26,20 +26,20 @@ XSMovablePolygon::~XSMovablePolygon()
 	delete[] this->m_mvbl_pt;
 }
 
-bool XSMovablePolygon::m_delta(int x, int y)
+bool XSMovablePolygon::m_delta(double x, double y)
 {
 	//计数 : 与边的交点个数
 	int n_inter = 0;
 	for(int i = 0; i < this->m_cpt; i++)
 	{
 		//取两个点
-		POINT *p1 = (this->m_mvbl_pt + i)->get_pos();
-		POINT *p2 = (this->m_mvbl_pt + ((i + 1) % this->m_cpt))->get_pos();
+		XSPoint *p1 = (this->m_mvbl_pt + i)->get_pos();
+		XSPoint *p2 = (this->m_mvbl_pt + ((i + 1) % this->m_cpt))->get_pos();
 		
-		int max_y = (p1->y > p2->y) ? p1->y : p2->y;
-		int min_y = (p1->y < p2->y) ? p1->y : p2->y;
-		int max_x = (p1->x > p2->x) ? p1->x : p2->x;
-		int min_x = (p1->x < p2->x) ? p1->x : p2->x;
+		double max_y = (p1->y > p2->y) ? p1->y : p2->y;
+		double min_y = (p1->y < p2->y) ? p1->y : p2->y;
+		double max_x = (p1->x > p2->x) ? p1->x : p2->x;
+		double min_x = (p1->x < p2->x) ? p1->x : p2->x;
 		
 		if(p1->x == p2->x)
 		{
@@ -51,7 +51,7 @@ bool XSMovablePolygon::m_delta(int x, int y)
 		}
 		else if(x >= min_x && x <= max_x)
 		{
-			double y0 = double(p2->y - p1->y) * (x - p1->x) / (p2->x - p1->x) + p1->y;
+			double y0 = (p2->y - p1->y) * (x - p1->x) / (p2->x - p1->x) + p1->y;
 			if(y < y0 && y0 >= min_y && y0 <= max_y)
 			{
 				n_inter++;
@@ -64,7 +64,7 @@ bool XSMovablePolygon::m_delta(int x, int y)
 
 void XSMovablePolygon::m_draw(XSGraphic *g, bool bin, bool bpush)
 {
-	POINT *apt = new POINT[this->m_cpt];
+	XSPoint *apt = new XSPoint[this->m_cpt];
 	for(int i = 0 ; i < this->m_cpt; i++)
 	{
 		apt[i].x = this->m_mvbl_pt[i].get_pos()->x;
@@ -81,7 +81,7 @@ void XSMovablePolygon::m_draw(XSGraphic *g, bool bin, bool bpush)
 	delete[] apt;
 }
 
-bool XSMovablePolygon::m_b_in_subobject_range(int x, int y)
+bool XSMovablePolygon::m_b_in_subobject_range(double x, double y)
 {
 	if(this->m_blbuttonup)
 	{
@@ -127,7 +127,7 @@ void XSMovablePolygon::lbuttonup()
 	this->m_blbuttonup = true;
 }
 
-void XSMovablePolygon::m_subobjects_move_to(int x, int y)
+void XSMovablePolygon::m_subobjects_move_to(double x, double y)
 {
 	for(int i = 0; i < this->m_cpt; i++)
 	{
@@ -136,14 +136,14 @@ void XSMovablePolygon::m_subobjects_move_to(int x, int y)
 	this->set_pos(x, y);
 }
 
-void XSMovablePolygon::m_move_to(int x, int y)
+void XSMovablePolygon::m_move_to(double x, double y)
 {
-	POINT *p = this->get_pos();
+	XSPoint *p = this->get_pos();
 	
 	for(int i = 0; i < this->m_cpt; i++)
 	{
-		int dx = this->m_mvbl_pt[i].get_pos()->x - p->x;
-		int dy = this->m_mvbl_pt[i].get_pos()->y - p->y;
+		double dx = this->m_mvbl_pt[i].get_pos()->x - p->x;
+		double dy = this->m_mvbl_pt[i].get_pos()->y - p->y;
 		this->m_mvbl_pt[i].push();
 		this->m_mvbl_pt[i].move_to(x + dx, y + dy);
 	}

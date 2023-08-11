@@ -19,10 +19,10 @@ public:
 	XSScene();							/*构造函数*/
 	~XSScene();							/*析构函数*/
 	
-	void set_on_timer(std::function<void(POINT)> ot);			/*响应计时器*/
-	void set_on_lbuttondown(std::function<void(POINT)> olbd);	/*响应鼠标按下*/
-	void set_on_lbuttonup(std::function<void(POINT)> olbu);		/*响应鼠标抬起*/
-	void set_on_mousemove(std::function<void(POINT)> omm);		/*响应鼠标移动*/
+	void set_on_timer(std::function<void(XSPoint)> ot);			/*响应计时器*/
+	void set_on_lbuttondown(std::function<void(XSPoint)> olbd);	/*响应鼠标按下*/
+	void set_on_lbuttonup(std::function<void(XSPoint)> olbu);		/*响应鼠标抬起*/
+	void set_on_mousemove(std::function<void(XSPoint)> omm);		/*响应鼠标移动*/
 	void set_on_keydown(std::function<void(WPARAM)> okd);		/*响应键盘按下*/
 	void set_on_keyup(std::function<void(WPARAM)> oku);			/*响应键盘抬起*/
 	void set_on_paint(std::function<void(XSGraphic*)> op);	/*响应绘图*/
@@ -33,10 +33,10 @@ public:
 	
 	void add_anim(XSAnimate *anim);		/*完全归场景操控的动画对象*/
 	
-	std::function<void(POINT)> on_timer;
-	std::function<void(POINT)> on_lbuttondown;
-	std::function<void(POINT)> on_lbuttonup;
-	std::function<void(POINT)> on_mousemove;
+	std::function<void(XSPoint)> on_timer;
+	std::function<void(XSPoint)> on_lbuttondown;
+	std::function<void(XSPoint)> on_lbuttonup;
+	std::function<void(XSPoint)> on_mousemove;
 	std::function<void(WPARAM)> on_keydown;
 	std::function<void(WPARAM)> on_keyup;
 	std::function<void(XSGraphic*)> on_paint;

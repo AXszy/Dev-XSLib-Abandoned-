@@ -44,7 +44,7 @@ UseUTF8 = 1
 
 
 [Unit1]
-FileName = main.cpp
+FileName = xsmovable.cpp
 CompileCpp = 1
 Folder = 源文件
 Compile = 1
@@ -77,11 +77,11 @@ SyncProduct = 1
 
 
 [Unit2]
-FileName = xspolygonbutton.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
+FileName = xsmusic.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -90,7 +90,7 @@ RealEncoding = UTF-8
 
 
 [Unit3]
-FileName = xsanimatedpoint.cpp
+FileName = xsmovablepolygon.cpp
 CompileCpp = 1
 Folder = 源文件
 Compile = 1
@@ -103,11 +103,11 @@ RealEncoding = UTF-8
 
 
 [Unit4]
-FileName = xspolygonbutton.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
+FileName = xsmovablepolygon.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -116,7 +116,7 @@ RealEncoding = UTF-8
 
 
 [Unit5]
-FileName = xsconfig.h
+FileName = xsmovable.h
 CompileCpp = 0
 Folder = 头文件
 Compile = 0
@@ -129,7 +129,7 @@ RealEncoding = UTF-8
 
 
 [Unit6]
-FileName = xsconfig.cpp
+FileName = xsupdater.cpp
 CompileCpp = 1
 Folder = 源文件
 Compile = 1
@@ -142,45 +142,6 @@ RealEncoding = UTF-8
 
 
 [Unit7]
-FileName = xsmusic.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit8]
-FileName = xsanimate.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit9]
-FileName = xsmovable.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit10]
 FileName = xsbutton.cpp
 CompileCpp = 1
 Folder = 源文件
@@ -193,8 +154,8 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit11]
-FileName = xsanimatedpoint.h
+[Unit8]
+FileName = xsmusic.h
 CompileCpp = 0
 Folder = 头文件
 Compile = 0
@@ -206,7 +167,7 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit12]
+[Unit9]
 FileName = xswindow.h
 CompileCpp = 0
 Folder = 头文件
@@ -219,21 +180,8 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit13]
-FileName = xappwindow.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit14]
-FileName = xsscene.cpp
+[Unit10]
+FileName = xsanimatedpoint.cpp
 CompileCpp = 1
 Folder = 源文件
 Compile = 1
@@ -245,12 +193,64 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit15]
-FileName = xsupdater.h
+[Unit11]
+FileName = xspolygonbutton.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit12]
+FileName = xspolygonbutton.h
 CompileCpp = 0
 Folder = 头文件
 Compile = 0
 Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit13]
+FileName = xsmovablepoint.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit14]
+FileName = xsanimate.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit15]
+FileName = main.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -272,11 +272,11 @@ RealEncoding = UTF-8
 
 
 [Unit17]
-FileName = xsscene.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
+FileName = xsconfig.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -285,33 +285,7 @@ RealEncoding = UTF-8
 
 
 [Unit18]
-FileName = xsmusic.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit19]
-FileName = xsupdater.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit20]
-FileName = xsgraphic.h
+FileName = xsanimatedpoint.h
 CompileCpp = 0
 Folder = 头文件
 Compile = 0
@@ -323,8 +297,34 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
+[Unit19]
+FileName = xsupdater.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit20]
+FileName = xsanimate.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
 [Unit21]
-FileName = xsmovable.h
+FileName = xsconfig.h
 CompileCpp = 0
 Folder = 头文件
 Compile = 0
@@ -337,7 +337,7 @@ RealEncoding = UTF-8
 
 
 [Unit22]
-FileName = xsanimate.h
+FileName = xsgraphic.h
 CompileCpp = 0
 Folder = 头文件
 Compile = 0
@@ -350,33 +350,7 @@ RealEncoding = UTF-8
 
 
 [Unit23]
-FileName = xsmovablepoint.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit24]
-FileName = xsmovablepolygon.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit25]
-FileName = xsmovablepoint.cpp
+FileName = xsscene.cpp
 CompileCpp = 1
 Folder = 源文件
 Compile = 1
@@ -388,12 +362,12 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit26]
-FileName = xsbutton.h
-CompileCpp = 0
-Folder = 头文件
-Compile = 0
-Link = 0
+[Unit24]
+FileName = xsgraphic.cpp
+CompileCpp = 1
+Folder = 源文件
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -401,7 +375,7 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit27]
+[Unit25]
 FileName = xappwindow.cpp
 CompileCpp = 1
 Folder = 源文件
@@ -414,12 +388,38 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
+[Unit26]
+FileName = xsscene.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit27]
+FileName = xsmovablepoint.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
 [Unit28]
-FileName = xsmovablepolygon.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
+FileName = xappwindow.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -428,11 +428,11 @@ RealEncoding = UTF-8
 
 
 [Unit29]
-FileName = xsgraphic.cpp
-CompileCpp = 1
-Folder = 源文件
-Compile = 1
-Link = 1
+FileName = xsbutton.h
+CompileCpp = 0
+Folder = 头文件
+Compile = 0
+Link = 0
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 

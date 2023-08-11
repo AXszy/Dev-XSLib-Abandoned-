@@ -32,7 +32,7 @@ void XSButton::pop()
 	}
 }
 
-bool XSButton::b_in_range(int x, int y)
+bool XSButton::b_in_range(double x, double y)
 {
 	b_in = m_delta(x, y);
 	if(!b_in) b_push = false;

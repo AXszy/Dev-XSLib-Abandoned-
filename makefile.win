@@ -5,10 +5,10 @@ CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 RES      = XSLib_private.res
-OBJ      = main.o xswindow.o xsgraphic.o xsupdater.o xsbutton.o xsmovable.o xsscene.o xsmovablepolygon.o xsmusic.o xappwindow.o xsanimate.o xsanimatedpoint.o xspolygonbutton.o xsmovablepoint.o xsconfig.o $(RES)
-LINKOBJ  = main.o xswindow.o xsgraphic.o xsupdater.o xsbutton.o xsmovable.o xsscene.o xsmovablepolygon.o xsmusic.o xappwindow.o xsanimate.o xsanimatedpoint.o xspolygonbutton.o xsmovablepoint.o xsconfig.o XSLib_private.res
-CLEANOBJ  =  main.o xswindow.o xsgraphic.o xsupdater.o xsbutton.o xsmovable.o xsscene.o xsmovablepolygon.o xsmusic.o xappwindow.o xsanimate.o xsanimatedpoint.o xspolygonbutton.o xsmovablepoint.o xsconfig.o  XSLib_private.res XSLib.exe
-LIBS     =  -mwindows  "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libole32.a"  "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a"  "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libmsimg32.a"  "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libsapi.a" -static
+OBJ      = xsmovable.o xsmusic.o xsmovablepolygon.o xsupdater.o xsbutton.o xsanimatedpoint.o xspolygonbutton.o xsmovablepoint.o main.o xswindow.o xsconfig.o xsanimate.o xsscene.o xsgraphic.o xappwindow.o $(RES)
+LINKOBJ  = xsmovable.o xsmusic.o xsmovablepolygon.o xsupdater.o xsbutton.o xsanimatedpoint.o xspolygonbutton.o xsmovablepoint.o main.o xswindow.o xsconfig.o xsanimate.o xsscene.o xsgraphic.o xappwindow.o XSLib_private.res
+CLEANOBJ  =  xsmovable.o xsmusic.o xsmovablepolygon.o xsupdater.o xsbutton.o xsanimatedpoint.o xspolygonbutton.o xsmovablepoint.o main.o xswindow.o xsconfig.o xsanimate.o xsscene.o xsgraphic.o xappwindow.o  XSLib_private.res XSLib.exe
+LIBS     =  -mwindows "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libole32.a"  "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libwinmm.a"  "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libmsimg32.a"  "F:/Program Files/RedPanda-Cpp/MinGW64/x86_64-w64-mingw32/lib/libsapi.a" -static
 INCS     =  
 CXXINCS  =  
 BIN      = XSLib.exe
@@ -27,50 +27,50 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
-
-xswindow.o: xswindow.cpp
-	$(CPP) -c xswindow.cpp -o xswindow.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
-
-xsgraphic.o: xsgraphic.cpp
-	$(CPP) -c xsgraphic.cpp -o xsgraphic.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
-
-xsupdater.o: xsupdater.cpp
-	$(CPP) -c xsupdater.cpp -o xsupdater.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
-
-xsbutton.o: xsbutton.cpp
-	$(CPP) -c xsbutton.cpp -o xsbutton.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
-
-xsmovable.o: xsmovable.cpp
+xsmovable.o: xsmovable.cpp xsmovable.h
 	$(CPP) -c xsmovable.cpp -o xsmovable.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
-xsscene.o: xsscene.cpp
-	$(CPP) -c xsscene.cpp -o xsscene.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
-
-xsmovablepolygon.o: xsmovablepolygon.cpp
-	$(CPP) -c xsmovablepolygon.cpp -o xsmovablepolygon.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
-
-xsmusic.o: xsmusic.cpp
+xsmusic.o: xsmusic.cpp xsmusic.h
 	$(CPP) -c xsmusic.cpp -o xsmusic.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
-xappwindow.o: xappwindow.cpp
-	$(CPP) -c xappwindow.cpp -o xappwindow.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+xsmovablepolygon.o: xsmovablepolygon.cpp xsmovablepolygon.h xsmovable.h xsmovablepoint.h
+	$(CPP) -c xsmovablepolygon.cpp -o xsmovablepolygon.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
-xsanimate.o: xsanimate.cpp
-	$(CPP) -c xsanimate.cpp -o xsanimate.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+xsupdater.o: xsupdater.cpp xsupdater.h
+	$(CPP) -c xsupdater.cpp -o xsupdater.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
-xsanimatedpoint.o: xsanimatedpoint.cpp
+xsbutton.o: xsbutton.cpp xsbutton.h
+	$(CPP) -c xsbutton.cpp -o xsbutton.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xsanimatedpoint.o: xsanimatedpoint.cpp xsanimate.h xsanimatedpoint.h
 	$(CPP) -c xsanimatedpoint.cpp -o xsanimatedpoint.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
-xspolygonbutton.o: xspolygonbutton.cpp
+xspolygonbutton.o: xspolygonbutton.cpp xspolygonbutton.h xsbutton.h
 	$(CPP) -c xspolygonbutton.cpp -o xspolygonbutton.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
-xsmovablepoint.o: xsmovablepoint.cpp
+xsmovablepoint.o: xsmovablepoint.cpp xsgraphic.h xsmovablepoint.h
 	$(CPP) -c xsmovablepoint.cpp -o xsmovablepoint.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
-xsconfig.o: xsconfig.cpp
+main.o: main.cpp xsmovablepolygon.h xsmovable.h xsmusic.h xswindow.h xspolygonbutton.h xsanimate.h xsanimatedpoint.h xsupdater.h xsgraphic.h xsscene.h xsmovablepoint.h xappwindow.h xsbutton.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xswindow.o: xswindow.cpp xswindow.h
+	$(CPP) -c xswindow.cpp -o xswindow.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xsconfig.o: xsconfig.cpp xsconfig.h
 	$(CPP) -c xsconfig.cpp -o xsconfig.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xsanimate.o: xsanimate.cpp xsanimate.h
+	$(CPP) -c xsanimate.cpp -o xsanimate.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xsscene.o: xsscene.cpp xsscene.h
+	$(CPP) -c xsscene.cpp -o xsscene.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xsgraphic.o: xsgraphic.cpp xsgraphic.h
+	$(CPP) -c xsgraphic.cpp -o xsgraphic.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+xappwindow.o: xappwindow.cpp xsmovablepolygon.h xsmovable.h xsmusic.h xswindow.h xspolygonbutton.h xsanimate.h xsanimatedpoint.h xsupdater.h xsconfig.h xsgraphic.h xsscene.h xsmovablepoint.h xappwindow.h xsbutton.h
+	$(CPP) -c xappwindow.cpp -o xappwindow.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
 
 XSLib_private.res: XSLib_private.rc 
 	$(WINDRES) -i XSLib_private.rc --input-format=rc -o XSLib_private.res -O coff $(WINDRESFLAGS) 

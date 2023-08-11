@@ -7,7 +7,7 @@
  **/
 #include "xsanimatedpoint.h"
 
-XSAnimatedPoint::XSAnimatedPoint(int x, int y, int T) : XSAnimate(T)
+XSAnimatedPoint::XSAnimatedPoint(double x, double y, int T) : XSAnimate(T)
 {
 	this->m_pos.x = x;
 	this->m_pos.y = y;
@@ -21,7 +21,7 @@ XSAnimatedPoint::~XSAnimatedPoint()
 	
 }
 
-POINT *XSAnimatedPoint::get_pos()
+XSPoint *XSAnimatedPoint::get_pos()
 {
 	return &this->m_pos;
 }
@@ -34,12 +34,12 @@ void XSAnimatedPoint::on_loop(int n)
 	this->m_pos.y = this->m_func_y(this->m_nloop);
 }
 
-void XSAnimatedPoint::set_func_x(std::function<int(long)> func_x)
+void XSAnimatedPoint::set_func_x(std::function<double(long)> func_x)
 {
 	this->m_func_x = func_x;
 }
 
-void XSAnimatedPoint::set_func_y(std::function<int(long)> func_y)
+void XSAnimatedPoint::set_func_y(std::function<double(long)> func_y)
 {
 	this->m_func_y = func_y;
 }
